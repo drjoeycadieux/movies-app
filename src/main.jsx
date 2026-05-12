@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import * as Apollo from '@apollo/client'; // Import everything as a namespace
-import App from './App';
+import * as Apollo from '@apollo/client'; 
+import App from './App'; // No curly braces here!
 
-// Manually extract the pieces from the Apollo namespace
+// This is the safety check to make sure Apollo is loaded
 const { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } = Apollo;
 
 const link = createHttpLink({
@@ -15,7 +15,10 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+// This is where line 23 usually is
+root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
       <App />
