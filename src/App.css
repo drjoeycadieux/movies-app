@@ -1,0 +1,102 @@
+/* General Layout */
+body {
+  margin: 0;
+  background-color: #121212; /* Dark Cinema Background */
+  color: #e0e0e0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  background: #1e1e1e;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+  text-align: center;
+  color: #ff4b2b; /* Pop of Movie-Poster Red */
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* The Form */
+form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: #333;
+  color: white;
+  outline: none;
+  transition: ring 0.3s;
+}
+
+input:focus {
+  box-shadow: 0 0 0 2px #ff4b2b;
+}
+
+button {
+  background: #ff4b2b;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s, background 0.2s;
+}
+
+button:hover {
+  background: #ff6a4d;
+  transform: translateY(-2px);
+}
+
+/* The Movie List */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #2a2a2a;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s;
+}
+
+li:hover {
+  background: #333;
+}
+
+.watched-badge {
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: #444;
+}
+
+.watched-true {
+  color: #4caf50; /* Green for watched */
+}
+
+.watched-false {
+  color: #ff9800; /* Orange for pending */
+}
