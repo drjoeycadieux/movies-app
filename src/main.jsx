@@ -1,23 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import * as Apollo from '@apollo/client';
+import * as Apollo from '@apollo/client'; // Import everything as a namespace
 import App from './App';
 
-// 1. Manually create the link
-const link = new Apollo.HttpLink({
+// Manually extract the pieces from the Apollo namespace
+const { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } = Apollo;
+
+const link = createHttpLink({
   uri: 'https://movback.netlify.app/graphql',
 });
 
-// 2. Initialize the client using that link
-const client = new Apollo.ApolloClient({
+const client = new ApolloClient({
   link: link,
-  cache: new Apollo.InMemoryCache(),
+  cache: new InMemoryCache(),
 });
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Apollo.ApolloProvider client={client}>
+    <ApolloProvider client={client}>
       <App />
-    </Apollo.ApolloProvider>
+    </ApolloProvider>
   </React.StrictMode>
 );
